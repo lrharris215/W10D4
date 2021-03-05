@@ -21,5 +21,6 @@
     "webpack": "^5.24.3",
     "webpack-cli": "^4.5.0"
   },
+  "devDependencies": {},
   "description": ""
 }
