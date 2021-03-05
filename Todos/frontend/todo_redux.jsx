@@ -3,13 +3,12 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import { receiveTodo, receiveTodos, removeTodo } from "./actions/todo_actions";
 import { receiveStep, receiveSteps, removeStep } from "./actions/step_actions";
+import App from "./components/app"
 
 function Root() {
   return (
-    <div>
-      <h1>Todos App</h1>
-    </div>
-  );
+    <App/>
+  )
 }
 
 const preloadedState = {
