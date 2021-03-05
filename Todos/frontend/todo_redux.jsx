@@ -3,13 +3,9 @@ import ReactDOM from "react-dom";
 import configureStore from "./store/store";
 import { receiveTodo, receiveTodos, removeTodo } from "./actions/todo_actions";
 import { receiveStep, receiveSteps, removeStep } from "./actions/step_actions";
-import App from "./components/app"
+import Root from "./components/root";
+import { AllTodos } from './reducers/selectors';
 
-function Root() {
-  return (
-    <App/>
-  )
-}
 
 const preloadedState = {
   todos: {
@@ -39,8 +35,10 @@ const preloadedState = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  ReactDOM.render(<Root />, document.getElementById("main"));
-  const store = configureStore(preloadedState);
+    const store = configureStore(preloadedState);
+
+  ReactDOM.render(<Root store={store}/>, document.getElementById("main"));
+  
   window.store = store;
   window.receiveTodo = receiveTodo;
   window.receiveTodos = receiveTodos;
@@ -48,4 +46,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.receiveStep = receiveStep;
   window.receiveSteps = receiveSteps;
   window.removeStep = removeStep;
+  window.AllTodos = AllTodos;
 });
