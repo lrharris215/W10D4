@@ -4,8 +4,7 @@ import configureStore from "./store/store";
 import { receiveTodo, receiveTodos, removeTodo } from "./actions/todo_actions";
 import { receiveStep, receiveSteps, removeStep } from "./actions/step_actions";
 import Root from "./components/root";
-import { AllTodos, allSteps, stepsByTodoId } from './reducers/selectors';
-
+import { AllTodos, allSteps, stepsByTodoId } from "./reducers/selectors";
 
 const preloadedState = {
   todos: {
@@ -35,10 +34,10 @@ const preloadedState = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    const store = configureStore(preloadedState);
+  const store = configureStore(preloadedState);
 
-  ReactDOM.render(<Root store={store}/>, document.getElementById("main"));
-  
+  ReactDOM.render(<Root store={store} />, document.getElementById("root"));
+
   window.store = store;
   window.receiveTodo = receiveTodo;
   window.receiveTodos = receiveTodos;
@@ -49,4 +48,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.AllTodos = AllTodos;
   window.allSteps = allSteps;
   window.stepsByTodoId = stepsByTodoId;
+  window.$ = $;
 });
