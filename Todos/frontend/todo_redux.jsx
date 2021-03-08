@@ -5,6 +5,7 @@ import { receiveTodo, receiveTodos, removeTodo } from "./actions/todo_actions";
 import { receiveStep, receiveSteps, removeStep } from "./actions/step_actions";
 import Root from "./components/root";
 import { AllTodos, allSteps, stepsByTodoId } from "./reducers/selectors";
+import { fetchTodos } from "./actions/todo_actions"
 
 const preloadedState = {
   todos: {
@@ -49,4 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.allSteps = allSteps;
   window.stepsByTodoId = stepsByTodoId;
   window.$ = $;
+  window.fetchTodos = fetchTodos;
+
 });
