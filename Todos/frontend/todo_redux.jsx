@@ -5,37 +5,10 @@ import { receiveTodo, receiveTodos, removeTodo } from "./actions/todo_actions";
 import { receiveStep, receiveSteps, removeStep } from "./actions/step_actions";
 import Root from "./components/root";
 import { AllTodos, allSteps, stepsByTodoId } from "./reducers/selectors";
-import { fetchTodos } from "./actions/todo_actions"
-
-const preloadedState = {
-  todos: {
-    1: {
-      id: 1,
-      title: "take a shower",
-      body: "and be clean",
-      done: false,
-    },
-  },
-  steps: {
-    1: {
-      // this is the step with id = 1
-      id: 1,
-      title: "walk to store",
-      done: false,
-      todo_id: 1,
-    },
-    2: {
-      // this is the step with id = 2
-      id: 2,
-      title: "buy soap",
-      done: false,
-      todo_id: 1,
-    },
-  },
-};
+import { fetchTodos } from "./actions/todo_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const store = configureStore(preloadedState);
+  const store = configureStore();
 
   ReactDOM.render(<Root store={store} />, document.getElementById("root"));
 
@@ -51,5 +24,4 @@ document.addEventListener("DOMContentLoaded", () => {
   window.stepsByTodoId = stepsByTodoId;
   window.$ = $;
   window.fetchTodos = fetchTodos;
-
 });

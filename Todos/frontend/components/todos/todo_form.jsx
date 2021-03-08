@@ -28,12 +28,12 @@ class TodoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.receiveTodo(this.state);
-    this.setState({
-      id: new Date().getTime(),
-      title: "",
-      body: "",
-      done: false,
+    this.props.createTodo(this.state).then(() => {
+      this.setState({
+        title: "",
+        body: "",
+        done: false,
+      });
     });
   }
 
